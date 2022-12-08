@@ -1,0 +1,43 @@
+<%- include('./path/header.ejs') %>
+
+<div class="container">
+  <div class="row">
+
+    <div class="col-sm-6 mt-5">
+      <h2 class="alert alert-success text-center"> Update Student</h2>
+      <form method="post" action="/student/update/<%= data._id%>" >
+        <div class="mb-3">
+          <label for="name" class="form-lebel">Name</label>
+          <input type="text" class="form-control" id="name" name="name" value="<%=data.name %>" />
+        </div>
+
+        <div class="mb-3">
+          <label for="email" class="form-lebel">email</label>
+          <input type="email" class="form-control" id="email" name="email" value="<%=data.email %>"/>
+        </div>
+
+        <div class="mb-3">
+          <label for="faculty" class="form-lebel">Faculty</label>
+          <input type="text" class="form-control" id="faculty" name="faculty" value="<%=data.faculty %>"/>
+        </div>
+        <div class="mb-3">
+          <label for="semester" class="form-lebel">Semester</label>
+          <input type="text" class="form-control" id="semester" name="semester" value="<%=data.semester %>"/>
+        </div>
+        <div class="mb-3">
+          <label for="roll" class="form-lebel">Roll</label>
+          <input type="text" class="form-control" id="roll" name="roll" value="<%=data.roll %>"/>
+        </div>
+
+        
+        <button type="submit" class="btn btn-warning">Update</button>
+        <button type="submit" class="btn btn-secondary">Back to Home</button>
+    </form>
+    </div>
+    
+  </div>
+  </div>
+
+
+    
+<%- include('./path/footer.ejs') %>

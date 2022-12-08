@@ -1,0 +1,85 @@
+<%- include('./path/header.ejs') %>
+
+<div class="container">
+  <div class="row">
+
+    <div class="col-sm-4 mt-5">
+      <h2 class="alert alert-success text-center"> Add new Student</h2>
+      <form method="post">
+        <div class="mb-3">
+          <label for="name" class="form-lebel">Name</label>
+          <input type="text" class="form-control" id="name" name="name"/>
+        </div>
+
+        <div class="mb-3">
+          <label for="email" class="form-lebel">email</label>
+          <input type="email" class="form-control" id="email" name="email"/>
+        </div>
+
+        <div class="mb-3">
+          <label for="faculty" class="form-lebel">Faculty</label>
+          <input type="text" class="form-control" id="faculty" name="faculty"/>
+        </div>
+        <div class="mb-3">
+          <label for="semester" class="form-lebel">Semester</label>
+          <input type="text" class="form-control" id="semester" name="semester"/>
+        </div>
+        <div class="mb-3">
+          <label for="roll" class="form-lebel">Roll</label>
+          <input type="text" class="form-control" id="roll" name="roll"/>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    
+    </div>
+    <div class="col-sm-8 mt-5">
+     <h2 class="alert alert-danger text-center"> List of Student</h2>
+     <%# show all student %>
+     <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th scope="col">No</th>
+          <th scope="col">Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Faculty</th>
+          <th scope="col">Semester</th>
+          <th scope="col">ID</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% var i = 1%>
+        <% data.forEach((item)=>{  %>
+        <tr>
+          <td><%= i++ %></td>
+          <td><%= item.name %></td>
+          <td><%= item.email %></td>
+          <td><%= item.faculty %></td>
+          <td><%= item.semester %></td>
+          <td><%= item.roll %></td>
+          <td>
+            <form  class="d-inline" action="/student/edit/<%= item._id %>" method="get">
+              <button type="submit">
+                <i class="fa-solid fa-pen-to-square"></i>
+              </button>
+            </form >
+            <form  class="d-inline" action="/student/delete/<%= item._id %>" method="post">
+              <button type="submit">
+                <i class="fa-solid fa-trash"></i>
+              </button>
+            </form >
+            
+          </td>
+        </tr>
+        <% }) %>
+      </tbody>
+     </table>
+    </div>
+
+  </div>
+  </div>
+</div>
+
+    
+<%- include('./path/footer.ejs') %>
